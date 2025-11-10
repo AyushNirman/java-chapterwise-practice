@@ -1,0 +1,20 @@
+public class Main {
+    public static void main(String[] args) {
+        // Step 1: Declare 3 numbers
+        int a = 25, b = 50, c = 15;
+
+        // Step 2: Find largest
+        int largest = a; // assume a is largest initially
+        if(b > largest) largest = b; // compare with b
+        if(c > largest) largest = c; // compare with c
+
+        // Step 3: Find smallest
+        int smallest = a; // assume a is smallest initially
+        if(b < smallest) smallest = b; // compare with b
+        if(c < smallest) smallest = c; // compare with c
+
+        // Step 4: Print results
+        System.out.println("Largest number: " + largest);
+        System.out.println("Smallest number: " + smallest);
+    }
+}
