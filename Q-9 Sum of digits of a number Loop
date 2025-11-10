@@ -1,0 +1,18 @@
+public class Main {
+    public static void main(String[] args) {
+        int n = -12345;          // number whose digits we want to sum
+        int sum = 0;             // variable to store the sum
+
+        int temp = Math.abs(n);  // Step 1: use absolute value to handle negative numbers
+
+        // Step 2: extract each digit using modulus and divide
+        while(temp != 0) {
+            int digit = temp % 10; // get the last digit
+            sum += digit;          // add digit to sum
+            temp /= 10;            // remove the last digit
+        }
+
+        // Step 3: print the result
+        System.out.println("Sum of digits of " + n + " is: " + sum);
+    }
+}
