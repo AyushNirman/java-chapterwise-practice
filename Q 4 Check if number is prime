@@ -1,0 +1,26 @@
+public class Main {
+    // Function to check if n is prime
+    static boolean isPrime(int n){
+
+        // Case 1: numbers <=1 are not prime
+        if(n <= 1) return false;
+
+        // Case 2: 2 is prime
+        if(n == 2) return true;
+
+        // Case 3: even numbers >2 are not prime
+        if(n % 2 == 0) return false;
+
+        // Check only odd numbers from 3 to √n
+        for(int i = 3; i * i <= n; i += 2){
+            if(n % i == 0) return false;
+        }
+
+        return true; // No divisor found → prime
+    }
+
+    public static void main(String[] args) {
+        int n = 29;
+        System.out.println(isPrime(n)); 
+    }
+}
