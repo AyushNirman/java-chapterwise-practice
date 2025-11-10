@@ -1,0 +1,33 @@
+public class Main {
+    public static void main(String[] args) {
+
+        // Step 1: Take the string
+        String str = "nittin";
+
+        // Step 2: Initialize two pointers
+        int i = 0;                       // left pointer
+        int j = str.length() - 1;        // right pointer
+
+        // Step 3: Assume string is palindrome
+        boolean isPalindrome = true;
+
+        // Step 4: Run loop until pointers cross
+        while(i < j) {
+
+            // Step 5: Compare characters from both ends
+            if(str.charAt(i) != str.charAt(j)) {
+
+                // Step 6: If mismatch, mark false & break
+                isPalindrome = false;
+                break;
+            }
+
+            // Step 7: Move pointers inward
+            i++;   // left pointer forward
+            j--;   // right pointer backward
+        }
+
+        // Step 8: Print result
+        System.out.println(isPalindrome);
+    }
+}
