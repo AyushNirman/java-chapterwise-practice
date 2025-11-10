@@ -1,0 +1,20 @@
+public class Main
+{
+    public static void main(String[] args) {
+        
+        // Step 1: Initialize number whose factorial we need
+        int n = 5;
+        
+        // Step 2: Variable to store factorial
+        int f = 1;
+        
+        // Step 3: Run loop from 1 to n
+        for(int i = 1; i <= n; i++){
+            // Step 4: Multiply f with i each time
+            f *= i;
+        }
+        
+        // Step 5: Print final answer
+        System.out.println("Factorial: " + f);
+    }
+}
