@@ -1,0 +1,21 @@
+public class Main {
+    public static void main(String[] args) {
+        int n = 12345;          // number to reverse
+        int reversed = 0;       // to store reversed number
+
+        int temp = Math.abs(n); // use absolute value to handle negative numbers
+
+        // Step 1: extract each digit and build reversed number
+        while(temp != 0) {
+            int digit = temp % 10;       // get last digit
+            reversed = reversed * 10 + digit; // append it to reversed number
+            temp /= 10;                  // remove last digit
+        }
+
+        // Step 2: restore negative sign if original number was negative
+        if(n < 0) reversed = -reversed;
+
+        // Step 3: print result
+        System.out.println("Reversed number of " + n + " is: " + reversed);
+    }
+}
