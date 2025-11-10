@@ -1,0 +1,19 @@
+public class Main {
+    public static void main(String[] args) {
+        int n = -123456; // The number whose digits we want to count
+        int count = 0;   // Counter to store the number of digits
+
+        // Step 1: Use absolute value to handle negative numbers
+        int temp = Math.abs(n); // temp = 123456
+
+        // Step 2: Keep dividing the number by 10 until it becomes 0
+        // Each division removes the last digit
+        while(temp != 0){
+            temp /= 10; // Remove last digit
+            count++;    // Increment digit count
+        }
+
+        // Step 3: Print the result
+        System.out.println("Number of digits in " + n + " is: " + count);
+    }
+}
