@@ -1,0 +1,21 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        // Convert char to ASCII
+        System.out.print("Enter a character: ");
+        char ch = sc.next().charAt(0);
+        int ascii = (int) ch; // char to ASCII
+        System.out.println("ASCII of '" + ch + "' is: " + ascii);
+
+        // Convert ASCII to char
+        System.out.print("Enter an ASCII value (integer 0-127): ");
+        int value = sc.nextInt();
+        char character = (char) value; // ASCII to char
+        System.out.println("Character of ASCII " + value + " is: " + character);
+
+        sc.close();
+    }
+}
