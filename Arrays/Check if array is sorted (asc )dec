@@ -1,0 +1,30 @@
+public class Main {
+    public static void main(String[] args) {
+
+        int[] arr = {10, 20, 30, 40, 50};  // sample array
+
+        // Step 1: assume both sorted
+        boolean isAscending = true;
+        boolean isDescending = true;
+
+        // Step 2: check order by comparing adjacent elements
+        for (int i = 0; i < arr.length - 1; i++) {
+
+            // if next is smaller, not ascending
+            if (arr[i] > arr[i + 1]) 
+                isAscending = false;
+
+            // if next is greater, not descending
+            if (arr[i] < arr[i + 1]) 
+                isDescending = false;
+        }
+
+        // Step 3: decide result
+        if (isAscending)
+            System.out.println("Array is sorted in ascending order");
+        else if (isDescending)
+            System.out.println("Array is sorted in descending order");
+        else
+            System.out.println("Array is not sorted");
+    }
+}
