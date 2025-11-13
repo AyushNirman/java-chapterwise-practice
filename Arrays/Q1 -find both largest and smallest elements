@@ -1,0 +1,26 @@
+public class Main {
+    public static void main(String[] args) {
+        // Step 1: Declare and initialize array
+        int[] arr = { -2, -9, 10, 45, 78, 0, 10, 80 };
+
+        // Step 2: Initialize variables
+        // Integer.MIN_VALUE → smallest possible int value (for max comparison)
+        // Integer.MAX_VALUE → largest possible int value (for min comparison)
+        int max = Integer.MIN_VALUE;
+        int min = Integer.MAX_VALUE;
+
+        // Step 3: Loop through the array once
+        for (int i = 0; i < arr.length; i++) {
+
+            // Step 4: Update max using built-in Math.max()
+            max = Math.max(max, arr[i]);
+
+            // Step 5: Update min using built-in Math.min()
+            min = Math.min(min, arr[i]);
+        }
+
+        // Step 6: Print results
+        System.out.println("Maximum value: " + max);
+        System.out.println("Minimum value: " + min);
+    }
+}
