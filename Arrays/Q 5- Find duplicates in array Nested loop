@@ -1,0 +1,47 @@
+public class Main {
+    public static void main(String[] args) {
+        int arr[] = {1, 2, 4, 5, 1, 2, 10, 12, 3, 5};
+        int n = arr.length;
+
+        System.out.println("Duplicate elements are:");
+
+        for (int i = 0; i < n; i++) {
+            for (int j = i + 1; j < n; j++) {
+                // compare current element with all next elements
+                if (arr[i] == arr[j]) {
+                    System.out.println(arr[i]);
+                    break; // avoid printing same duplicate multiple times
+                }
+            }
+        }
+    }
+}
+
+Logic:
+
+Take each element (arr[i]).
+
+Compare it with all next elements (arr[j] where j = i + 1 to end).
+
+If a match is found → it’s a duplicate.
+
+Print it and break to skip repeating the same duplicate again.
+
+
+
+import java.util.Arrays;
+
+public class Main {
+    public static void main(String[] args) {
+        int arr[] = {1, 2, 4, 5, 1, 2, 10, 12, 3, 5};
+        Arrays.sort(arr); // sort array first
+
+        System.out.println("Duplicate elements are:");
+
+        for (int i = 0; i < arr.length - 1; i++) {
+            if (arr[i] == arr[i + 1]) {
+                System.out.println(arr[i]);
+            }
+        }
+    }
+}
