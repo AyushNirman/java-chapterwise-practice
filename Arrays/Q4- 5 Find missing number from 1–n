@@ -1,0 +1,25 @@
+public class Main {
+    public static void main(String[] args) {
+
+        // Step 1️⃣: Example array from 1 to 5 but one number is missing
+        int[] arr = {1, 2, 4, 5};  
+
+        // Step 2️⃣: Find n (the last number if no element was missing)
+        int n = arr.length+1;
+
+        // Step 3️⃣: Formula for sum of first n natural numbers → n*(n+1)/2
+        int expectedSum = n * (n + 1) / 2;
+
+        // Step 4️⃣: Find actual sum of all elements in the array
+        int actualSum = 0;
+        for (int i = 0; i < arr.length; i++) {
+            actualSum += arr[i];
+        }
+
+        // Step 5️⃣: Missing number = expectedSum - actualSum
+        int missing = expectedSum - actualSum;
+
+        // Step 6️⃣: Print the result
+        System.out.println("Missing Number: " + missing);
+    }
+}
