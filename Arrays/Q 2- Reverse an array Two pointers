@@ -1,0 +1,23 @@
+public class Main {
+    public static void main(String[] args) {
+
+        // Original array
+        int[] arr = {10, 25, 8, 36, 15};
+
+        // Two pointers — i starts from front, j from end
+        int i = 0, j = arr.length - 1;
+
+        // Swap until pointers meet in the middle
+        while (i < j) {
+            int temp = arr[i];   // store left element
+            arr[i] = arr[j];     // copy right to left
+            arr[j] = temp;       // put stored left into right
+            i++;                 // move left pointer forward
+            j--;                 // move right pointer backward
+        }
+
+        // Print reversed array
+        for (int x : arr)
+            System.out.println(x + " ");
+    }
+}
