@@ -1,0 +1,42 @@
+import java.util.Arrays;
+public class Main
+{
+    public static void main(String[] args) {
+        System.out.println("Remove duplicates using Two Pointers");
+
+        int arr[] = {2,3,10,2,3,4,2,40,40,2,3,7};
+
+        // Step 1: Sort array so duplicates come together
+        Arrays.sort(arr);
+
+        int n = arr.length;
+
+        // i = slow pointer → stores unique elements
+        // j = fast pointer → scans the array
+        int i = 0, j = 1;
+
+        // Step 2: Traverse whole array
+        while (j < n) {
+
+            // If same → skip duplicates
+            if (arr[j] == arr[i]) {
+                j++;    // move j forward
+            }
+
+            // If different → found a new unique element
+            else {
+                i++;          // move slow pointer
+                arr[i] = arr[j]; // store the unique element at new position
+            }
+        }
+
+        // i holds last index of unique elements
+        int uniqueCount = i + 1;
+
+        // Print unique elements
+        System.out.print("Unique elements: ");
+        for (int k = 0; k < uniqueCount; k++) {
+            System.out.print(arr[k] + " ");
+        }
+    }
+}
