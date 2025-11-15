@@ -1,0 +1,33 @@
+import java.util.Arrays;
+
+public class Main
+{
+    public static void main(String[] args) {
+
+        int arr[] = {2,3,10,2,3,4,2};
+
+        // Step 1: Sort so that duplicates come next to each other
+        Arrays.sort(arr);
+
+        int c = 0;   // counts unique duplicate numbers
+
+        // Step 2: Traverse from 1 because we compare with arr[i-1]
+        for(int i = 1; i < arr.length; i++){
+
+            // Step 3: Check if current element equals previous → duplicate found
+            if(arr[i] == arr[i - 1]){
+
+                c++;    // increase duplicate count
+
+                // Step 4: Skip all further occurrences of this same value
+                // This ensures we count each duplicate number only ONCE
+                while(i < arr.length - 1 && arr[i] == arr[i + 1]){
+                    i++;    // move ahead through repeated values
+                }
+            }
+        }
+
+        // Step 5: Print how many distinct numbers are duplicates
+        System.out.println("Total duplicates are: " + c);
+    }
+}
