@@ -31,3 +31,46 @@ public class Main {
         System.out.println(isPalindrome);
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+public class Main {
+    public static void main(String[] args) {
+
+        // Step 1: Take the string
+        String str = "nittin";
+
+        // Step 2: Assume string is palindrome
+        boolean isPalindrome = true;
+
+        // Step 3: Loop from start to middle only
+        for (int i = 0; i < str.length() / 2; i++) {
+
+            // Step 4: Compare characters from both ends
+            if (str.charAt(i) != str.charAt(str.length() - 1 - i)) {
+
+                // Step 5: If mismatch, mark false & break
+                isPalindrome = false;
+                break;
+            }
+        }
+
+        // Step 6: Print result
+        System.out.println(isPalindrome);
+    }
+}
+
