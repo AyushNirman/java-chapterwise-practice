@@ -24,3 +24,39 @@ public class Main {
         System.out.println("Minimum value: " + min);
     }
 }
+
+
+
+
+
+public class Main {
+    public static void main(String[] args) {
+        // Initialize the array to find max and min indexes
+        int[] arr = {2, 20, 40, 3, 10, 60, 1};
+
+        // Call the function to find indexes of max and min
+        int[] indexes = findIndexes(arr);
+
+        // Print the results
+        System.out.println("Max at index: " + indexes[0]); // index of largest element
+        System.out.println("Min at index: " + indexes[1]); // index of smallest element
+    }
+
+    // Function to find indexes of maximum and minimum elements in an array
+    public static int[] findIndexes(int[] arr) {
+        // Initialize maxIndex and minIndex with 0 (first element)
+        int maxIndex = 0, minIndex = 0;
+
+        // Loop through the array starting from index 1
+        for (int i = 1; i < arr.length; i++) {
+            // If current element is greater than element at maxIndex, update maxIndex
+            if (arr[i] > arr[maxIndex]) maxIndex = i;
+
+            // If current element is smaller than element at minIndex, update minIndex
+            if (arr[i] < arr[minIndex]) minIndex = i;
+        }
+
+        // Return an array with maxIndex at position 0 and minIndex at position 1
+        return new int[]{maxIndex, minIndex};
+    }
+}
