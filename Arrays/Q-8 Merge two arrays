@@ -1,0 +1,51 @@
+import java.util.ArrayList;
+import java.util.Collections;
+
+public class Main {
+    public static void main(String[] args) {
+
+        // ----------------------------
+        // 1️⃣ MERGING TWO ARRAYS (BEST BASIC LOGIC)
+        // ----------------------------
+
+        int[] arr1 = {2, 4, 6, 8};
+        int[] arr2 = {10, 12, 14, 16};
+
+        // New array size = sum of both sizes
+        int merge[] = new int[arr1.length + arr2.length];
+
+        int idx = 0; // index for merge array
+
+        // Copy arr1 elements
+        for (int x : arr1) {
+            merge[idx++] = x;
+        }
+
+        // Copy arr2 elements
+        for (int x : arr2) {
+            merge[idx++] = x;
+        }
+
+        System.out.println("Merged using normal array:");
+        for (int x : merge) System.out.print(x + " ");
+
+        System.out.println("\n------------------------");
+
+        // ----------------------------
+        // 2️⃣ MERGING USING ARRAYLIST (INTERVIEW IMPRESSIVE)
+        // ----------------------------
+
+        // Integer wrapper is needed for ArrayList
+        Integer a1[] = {2, 4, 6, 8};
+        Integer a2[] = {10, 12, 14, 16};
+
+        ArrayList<Integer> list = new ArrayList<>();
+
+        // add both arrays in ONE LINE each → very clean & interviewer likes it
+        Collections.addAll(list, a1);
+        Collections.addAll(list, a2);
+
+        System.out.println("Merged using ArrayList:");
+        System.out.println(list);
+    }
+}
