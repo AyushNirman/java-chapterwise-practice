@@ -1,0 +1,19 @@
+public class Main {
+    public static void main(String[] args) {
+
+        // Step 1: Input string
+        String str = "I love Java programming";
+
+        // Step 2: Remove extra spaces from beginning and end
+        str = str.trim();
+
+        // Step 3: Split sentence into words using space
+        String[] words = str.split("\\s+");
+
+        // Step 4: Count number of words
+        int count = words.length;
+
+        // Step 5: Print result
+        System.out.println("Total words: " + count);
+    }
+}
