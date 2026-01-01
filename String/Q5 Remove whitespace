@@ -1,0 +1,5 @@
+	String str="a yu s h a a a a  ";
+		
+		String result=str.replace(" ","");
+		
+		System.out.println(result);
