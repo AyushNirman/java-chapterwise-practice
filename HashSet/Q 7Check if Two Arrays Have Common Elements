@@ -1,0 +1,37 @@
+Store elements of first array in HashSet
+
+Check second array elements one by one
+
+If found → common element exists
+
+💻 Code
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+
+        int[] a = {1, 2, 3, 4};
+        int[] b = {5, 6, 3, 8};
+
+        HashSet<Integer> set = new HashSet<>();
+
+        for (int x : a) {
+            set.add(x);
+        }
+
+        boolean found = false;
+
+        for (int y : b) {
+            if (set.contains(y)) {
+                found = true;
+                break;
+            }
+        }
+
+        System.out.println(found);
+    }
+}
+
+
+🧠 Meaning:
+If any number appears in both arrays → true
