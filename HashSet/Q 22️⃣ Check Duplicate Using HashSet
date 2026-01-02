@@ -1,0 +1,8 @@
+int[] arr = {1, 2, 3, 2};
+
+HashSet<Integer> set = new HashSet<>();
+for (int x : arr) {
+    if (!set.add(x)) {
+        System.out.println("Duplicate found: " + x);
+    }
+}
