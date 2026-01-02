@@ -31,3 +31,22 @@ public class Main
         System.out.println("Total duplicates are: " + c);
     }
 }
+
+
+✅ 4. Using Sorting (No Extra Space)
+
+Time: O(n log n)
+
+import java.util.*;
+
+class Main {
+    public static void main(String[] args) {
+        int[] arr = {1, 2, 3, 2, 4, 1};
+        Arrays.sort(arr);
+
+        for (int i = 0; i < arr.length - 1; i++) {
+            if (arr[i] == arr[i + 1])
+                System.out.println(arr[i]);
+        }
+    }
+}
