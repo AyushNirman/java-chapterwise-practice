@@ -1,0 +1,11 @@
+int[] arr = {1, 2, 3, 2, 4};
+HashSet<Integer> set = new HashSet<>();
+
+for (int x : arr) {
+    set.add(x);
+}
+
+System.out.println("Unique count: " + set.size());
+
+9️⃣ Convert HashSet to ArrayList
+ArrayList<Integer> list = new ArrayList<>(set);
