@@ -1,0 +1,20 @@
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+
+        int[] a = {1, 2, 3};
+        int[] b = {3, 4, 5};
+
+        HashSet<Integer> union = new HashSet<>();
+
+        for (int x : a) union.add(x);
+        for (int y : b) union.add(y);
+
+        System.out.println(union);
+    }
+}
+
+Union = all unique elements from both arrays
+
+HashSet automatically removes duplicates
