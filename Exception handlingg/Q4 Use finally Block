@@ -1,0 +1,21 @@
+public class Main {
+    public static void main(String[] args) {
+
+        try {
+            int a = 10 / 2;
+            System.out.println("Result: " + a);
+
+        } catch (Exception e) {
+            System.out.println("Error occurred");
+
+        } finally {
+            // always executes
+            System.out.println("Execution completed");
+        }
+    }
+}
+Interview Explanation
+
+finally always runs
+
+Used for cleanup (DB close, file close)
