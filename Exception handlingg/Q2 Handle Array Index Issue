@@ -1,0 +1,15 @@
+public class Main {
+    public static void main(String[] args) {
+
+        int[] arr = {1, 2, 3};
+
+        try {
+            // accessing invalid index
+            System.out.println(arr[5]);
+
+        } catch (ArrayIndexOutOfBoundsException e) {
+            // handles wrong index access
+            System.out.println("Index out of range");
+        }
+    }
+}
