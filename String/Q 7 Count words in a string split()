@@ -6,7 +6,7 @@ public class Main {
 
         // Step 2: Remove extra spaces from beginning and end
         str = str.trim();
-
+  if (str.isEmpty()) return 0;
         // Step 3: Split sentence into words using space
         String[] words = str.split("\\s+");
 
