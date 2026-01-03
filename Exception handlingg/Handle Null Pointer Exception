@@ -1,0 +1,20 @@
+public class Main {
+    public static void main(String[] args) {
+
+        String s = null;
+
+        try {
+            // calling method on null object
+            System.out.println(s.length());
+
+        } catch (NullPointerException e) {
+            // handles null object access
+            System.out.println("String is null");
+        }
+    }
+}
+//🧠 Interview Explanation
+
+Calling methods on null causes NullPointerException
+
+Always check or handle null safely
