@@ -1,0 +1,43 @@
+Q4️⃣ Validation using Setter
+
+Goal: Allow only valid age (≥18)
+
+class User {
+
+    // Step 1: Private data
+    private int age;
+
+    // Step 2: Setter with validation logic
+    public void setAge(int age) {
+        if (age >= 18) {
+            this.age = age;
+        } else {
+            System.out.println("Age must be 18 or above");
+        }
+    }
+
+    // Step 3: Getter
+    public int getAge() {
+        return age;
+    }
+}
+
+class Main {
+    public static void main(String[] args) {
+
+        User u = new User();
+        u.setAge(16);   // invalid
+        u.setAge(22);   // valid
+
+        System.out.println("Age: " + u.getAge());
+    }
+}
+
+
+🧠 Interview line:
+
+Validation inside setter ensures data integrity.
+
+🎯 FINAL INTERVIEW SUMMARY (MEMORIZE)
+
+Encapsulation hides data using private variables and allows controlled access through methods like getters, setters, or business logic methods.
