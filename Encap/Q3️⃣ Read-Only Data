@@ -1,0 +1,36 @@
+Q3️⃣ Read-Only Data Create a class Employee: private empId only getter (no setter) value set using constructor 
+
+Q3️⃣ Read-Only Data
+
+Goal: Value set once, cannot be modified later
+
+class Employee {
+
+    // Step 1: Private variable
+    private int empId;
+
+    // Step 2: Constructor initializes value
+    Employee(int empId) {
+        this.empId = empId;
+    }
+
+    // Step 3: Only getter (NO setter)
+    public int getEmpId() {
+        return empId;
+    }
+}
+
+class Main {
+    public static void main(String[] args) {
+
+        Employee e = new Employee(101);
+        System.out.println("Employee ID: " + e.getEmpId());
+
+        // e.empId = 200; ❌ not allowed
+    }
+}
+
+
+🧠 Interview line:
+
+Read-only data is achieved using private variable, constructor, and no setter.
