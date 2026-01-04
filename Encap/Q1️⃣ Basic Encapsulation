@@ -1,0 +1,47 @@
+Q1️⃣ Basic Encapsulation
+
+Q1️⃣ Basic Encapsulation Create a class Student: private variables: id, name public getters & setters set values and print them
+
+Goal: Hide data using private and access via getters/setters 
+
+// Step 1: Create Student class
+class Student {
+
+    // Step 2: Declare private variables (data hiding)
+    private int id;
+    private String name;
+
+    // Step 3: Setter methods (set values)
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    // Step 4: Getter methods (get values)
+    public int getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+}
+
+// Step 5: Test in main class
+public class Main {
+    public static void main(String[] args) {
+
+        Student s = new Student();
+        s.setId(10);
+        s.setName("Ayush");
+
+🧠 Interview line:
+
+Data is private and accessed using public getters and setters.
+
+        System.out.println(s.getId() + " " + s.getName());
+    }
+}
