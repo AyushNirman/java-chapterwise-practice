@@ -1,0 +1,49 @@
+Q2️⃣ Data Protection Create a class BankAccount: private variable balance method deposit(int amt) method withdraw(int amt) balance should not go negative
+
+Q2️⃣ Data Protection
+
+Goal: Prevent invalid balance update (NO direct setter)
+
+class BankAccount {
+
+    // Step 1: Private balance (sensitive data)
+    private int balance = 1000;
+
+    // Step 2: Deposit method
+    public void deposit(int amt) {
+        if (amt > 0) {
+            balance += amt;
+        }
+    }
+
+    // Step 3: Withdraw with validation
+    public void withdraw(int amt) {
+        if (amt > 0 && amt <= balance) {
+            balance -= amt;
+        } else {
+            System.out.println("Insufficient balance");
+        }
+    }
+
+    // Step 4: Getter (optional, read-only)
+    public int getBalance() {
+        return balance;
+    }
+}
+
+class Main {
+    public static void main(String[] args) {
+
+        BankAccount acc = new BankAccount();
+        acc.deposit(500);
+        acc.withdraw(300);
+        acc.withdraw(2000);
+
+        System.out.println("Balance: " + acc.getBalance());
+    }
+}
+
+
+🧠 Interview line:
+
+For sensitive data, we avoid setters and expose behavior methods.
