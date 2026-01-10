@@ -1,0 +1,36 @@
+class Main {
+    public static void main(String[] args) {
+
+        // Given array
+        int[] arr = {2, 4, 6, 8, 10};
+
+        // Initialize largest and secondLargest
+        // Integer.MIN_VALUE is the smallest possible int value
+        int largest = Integer.MIN_VALUE;
+        int secondLargest = Integer.MIN_VALUE;
+
+        // Traverse the array once
+        for (int i = 0; i < arr.length; i++) {
+
+            // If current element is greater than largest
+            if (arr[i] > largest) {
+
+                // Old largest becomes second largest
+                secondLargest = largest;
+
+                // Update largest
+                largest = arr[i];
+            }
+
+            // If element is smaller than largest
+            // but greater than secondLargest
+            // and not equal to largest (avoid duplicates)
+            else if (arr[i] > secondLargest && arr[i] != largest) {
+                secondLargest = arr[i];
+            }
+        }
+
+        // Print second largest element
+        System.out.println(secondLargest);
+    }
+}
