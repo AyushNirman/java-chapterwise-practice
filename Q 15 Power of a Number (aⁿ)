@@ -1,0 +1,19 @@
+Power of a Number (aⁿ)
+
+
+static long power(int base, int exp) {
+
+    // 1️⃣ Start with 1 because 1 is identity of multiplication
+    long result = 1;
+
+    // 2️⃣ Repeat multiplication exp times
+    for (int i = 1; i <= exp; i++) {
+
+        // 3️⃣ Multiply base each time
+        //    This builds base^exp gradually
+        result = result * base;
+    }
+
+    // 4️⃣ Final result is base^exp
+    return result;
+}
