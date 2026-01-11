@@ -1,0 +1,17 @@
+class Main {
+    public static void main(String[] args) {
+
+        int[] arr = {1, 2, 3, 2, 2, 4};
+        int key = 2;
+
+        int count = 0;
+
+        for (int x : arr) {
+            if (x == key) {
+                count++;
+            }
+        }
+
+        System.out.println(count);
+    }
+}
