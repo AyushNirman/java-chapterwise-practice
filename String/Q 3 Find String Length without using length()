@@ -1,0 +1,24 @@
+String s = "Ayush";
+int count = 0;   // Step 0: initialize counter
+
+// Step 1: convert string to char array and loop through each character
+for (char c : s.toCharArray()) {
+    count++;   // Step 2: increment count for each character
+}
+
+// Step 3: print result
+System.out.println("Length of string: " + count);
+
+
+
+📝 Notes
+
+toCharArray() → breaks string into characters
+
+Loop counts all characters → length
+
+TC: O(n)
+
+SC: O(n) → char array
+
+Memory hook: “Loop + count → total chars = length”
