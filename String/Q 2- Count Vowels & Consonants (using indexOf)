@@ -1,0 +1,41 @@
+static void countVC(String str) {
+
+    int vowels = 0, consonants = 0;   // counters
+
+    // Step 1: convert to lowercase (to handle A & a same)
+    str = str.toLowerCase();
+
+    // Step 2: traverse each character of string
+    for (int i = 0; i < str.length(); i++) {
+
+        char ch = str.charAt(i);  // current character
+
+        // Step 3: check only alphabets (ignore digits & symbols)
+        if (ch >= 'a' && ch <= 'z') {
+
+            // Step 4: check vowel using indexOf
+            // indexOf() returns -1 if character NOT found
+            if ("aeiou".indexOf(ch) != -1) {
+                vowels++;          // vowel found
+            } else {
+                consonants++;     // remaining alphabets
+            }
+        }
+    }
+
+    // Step 5: print result
+    System.out.println("Vowels = " + vowels);
+    System.out.println("Consonants = " + consonants);
+}
+
+🧠 Remember This in One Line
+
+Alphabet check → indexOf vowel → else consonant
+
+🧠 Remember This in One Line
+
+Alphabet check → indexOf vowel → else consonant
+
+🎯 Interview Explanation (1–2 lines)
+
+“I loop once through the string, ignore non-alphabets, and use indexOf() on a fixed vowel string to classify vowels and consonants.” 
