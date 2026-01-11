@@ -1,0 +1,22 @@
+String a = "Ayush";
+String b = "Ayush";
+
+// Step 1: compare using equals (checks content, not memory)
+if (a.equals(b)) {
+    System.out.println("Same");
+} else {
+    System.out.println("Not Same");
+}
+
+
+📝 Notes
+
+== → checks reference/address (DON’T USE)
+
+equals() → checks actual content → correct way
+
+TC: O(n) → compare char by char
+
+SC: O(1)
+
+Memory hook: “== address, equals() value”
