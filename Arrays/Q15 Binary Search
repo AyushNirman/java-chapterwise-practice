@@ -1,0 +1,88 @@
+static int binarySearch(int[] arr, int key) {
+
+    // 1️⃣ low = starting index of search space
+    //    Binary search always starts from leftmost element
+    int low = 0;
+
+    // 2️⃣ high = ending index of search space
+    //    Last valid index = length - 1
+    int high = arr.length - 1;
+
+    // 3️⃣ Loop runs while a valid search range exists
+    //    If low > high → element not present
+    while (low <= high) {
+
+        // 4️⃣ Find middle index safely
+        //    Prevents integer overflow
+        //    mid = (low + high) / 2  ❌ (can overflow)
+        int mid = low + (high - low) / 2;
+
+        // 5️⃣ If middle element is the key → FOUND
+        if (arr[mid] == key)
+            return mid;
+
+        // 6️⃣ If middle value is smaller than key
+        //    Key must be in RIGHT half → discard left half
+        else if (arr[mid] < key)
+            low = mid + 1;
+
+        // 7️⃣ If middle value is greater than key
+        //    Key must be in LEFT half → discard right half
+        else
+            high = mid - 1;
+    }
+
+    // 8️⃣ If loop ends, element was not found
+    return -1;
+}
+
+
+
+
+🔹 Corner Cases (Interview Traps)
+
+Empty array → return -1
+
+Single element array → still works
+
+Duplicates → returns any occurrence
+
+Integer overflow → always use mid = low + (high - low)/2     
+
+
+
+
+🧠 SHORT INTERVIEW NOTES (WRITE THIS)
+
+Works only on sorted array
+
+Check middle element
+
+Discard half array every step
+
+Stop when low > high
+
+Use low + (high - low)/2 for safety
+
+🔑 One-line Memory Trick
+
+“Middle dekho → aadha hatao → repeat”
+
+
+🧠 SHORT INTERVIEW NOTES (WRITE THIS)
+
+Works only on sorted array
+
+Check middle element
+
+Discard half array every step
+
+Stop when low > high
+
+Use low + (high - low)/2 for safety
+
+🔑 One-line Memory Trick
+
+“Middle dekho → aadha hatao → repeat”
+
+ 
