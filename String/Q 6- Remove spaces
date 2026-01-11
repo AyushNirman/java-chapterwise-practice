@@ -1,0 +1,43 @@
+class Main {
+    public static void main(String[] args) {
+
+        // Given string with spaces
+        String s = "  Java  Developer  ";
+
+        // Remove all spaces using replaceAll()
+        // "\\s" = regex for any whitespace (spaces, tabs, etc.)
+        // "" = replace with nothing
+        String result = s.replaceAll("\\s", "");
+
+        // Print the string after removing spaces
+        System.out.println(result);
+    }
+}
+
+💡 Interview One-Liner
+
+“I used replaceAll("\\s","") to remove all spaces from the string efficiently in O(n) time.”
+
+📝 Step-by-Step Notes (Interview Ready)
+
+s.replaceAll("\\s", "")
+
+\\s → matches any whitespace character
+
+"" → replaces whitespace with nothing
+
+Effect: removes all spaces in the string
+
+Time Complexity: O(n) → loops through the string once
+
+Space Complexity: O(n) → creates a new string
+
+Output: "JavaDeveloper" → all spaces removed
+
+Works for:
+
+Leading spaces
+
+Trailing spaces
+
+Multiple spaces between words
