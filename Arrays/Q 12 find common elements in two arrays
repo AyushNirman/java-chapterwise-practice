@@ -1,0 +1,43 @@
+import java.util.*;
+
+class Main {
+    public static void main(String[] args) {
+
+        int[] arr1 = {1, 2, 3, 4};
+        int[] arr2 = {3, 4, 5, 6};
+
+        // Store elements of first array in HashSet
+        HashSet<Integer> set = new HashSet<>();
+
+        for (int x : arr1) {
+            set.add(x);
+        }
+
+        // Check elements of second array
+        for (int x : arr2) {
+            if (set.contains(x)) {
+                System.out.println(x);
+            }
+        }
+    }
+}
+
+🧠 Logic (Short Notes)
+
+Store first array elements in HashSet
+
+Traverse second array
+
+If element exists in set → common element
+
+⭐ Interview Notes
+
+Time Complexity: O(n)
+
+Space Complexity: O(n)
+
+HashSet gives O(1) lookup
+
+🗣️ Interview One-Liner
+
+“I use HashSet to find common elements efficiently.” 
