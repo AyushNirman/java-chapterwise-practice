@@ -1,0 +1,30 @@
+✅ Logic
+
+Traverse each character
+
+Check if '0' <= ch <= '9'
+
+If found → break, contains digit
+
+
+
+String s = "Ayush123";
+boolean hasDigit = false;
+
+for (char c : s.toCharArray()) {
+    if (c >= '0' && c <= '9') {   // digit check
+        hasDigit = true;
+        break;                     // no need to check further
+    }
+}
+
+System.out.println(hasDigit ? "Contains digit" : "No digit");
+
+
+🔹 TC / SC
+
+Time: O(n) → early exit on first digit
+
+Space: O(1)
+
+Memory hook: “0–9 range → flag → break”
