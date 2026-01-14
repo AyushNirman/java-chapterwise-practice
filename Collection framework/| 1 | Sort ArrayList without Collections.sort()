@@ -1,0 +1,66 @@
+
+ArrayList<Integer> list = new ArrayList<>();
+// Creates an empty ArrayList to store integers
+///ArrayList<Integer>list= new ArrayList<>(List.of(2,4,10,6,1));
+list.add(4);
+// Adds element 4 into the list
+
+list.add(1);
+// Adds element 1 into the list
+
+list.add(3);
+// Adds element 3 into the list
+
+list.add(2);
+// Adds element 2 into the list
+
+// ---------------- BUBBLE SORT LOGIC ----------------
+
+// Outer loop controls number of passes
+// After every pass, the smallest element gets placed at correct position
+for (int i = 0; i < list.size(); i++) {
+
+    // Inner loop compares current element with remaining elements
+    // j starts from i+1 to avoid rechecking already sorted elements
+    for (int j = i + 1; j < list.size(); j++) {
+
+        // Compare elements at index i and j
+        // If element at i is greater, swap them
+        if (list.get(i) > list.get(j)) {
+
+            // Temporary variable used to store value during swap
+            int temp = list.get(i);
+
+            // Place smaller element at lower index
+            list.set(i, list.get(j));
+
+            // Put larger element at higher index
+            list.set(j, temp);
+        }
+    }
+}
+
+// Prints the sorted ArrayList
+System.out.println(list);
+
+
+
+
+🧠 INTERVIEW NOTES (VERY IMPORTANT)
+🔹 Sorting Type
+
+Comparison-based sorting
+
+Similar to Bubble / Selection Sort hybrid
+
+🔹 Time Complexity
+
+Best / Average / Worst: O(n²)
+
+🔹 Space Complexity
+
+O(1) → In-place sorting
+
+🔹 Why not Collections.sort()?
+
+Interviewer wants to check logic & fundamentals
