@@ -1,0 +1,29 @@
+
+
+List<Integer> list = List.of(1, 2, 2, 3, 3);
+Set<Integer> set = new LinkedHashSet<>(list);
+
+
+
+2️⃣ LinkedHashSet kyun?
+
+Java me 3 common Set hote hain:
+
+Set Type	Duplicate	Order
+HashSet	❌	❌ random
+LinkedHashSet	❌	✅ SAME order
+TreeSet	❌	✅ sorted
+
+👉 Interview trick:
+
+Order chahiye → LinkedHashSet
+
+Order matter nahi → HashSet
+
+//Is list me duplicate values hain: 2 aur 3
+
+⏱ Time / Space (simple words)
+
+Time: O(n) → list ek baar read hoti hai
+
+Space: O(n) → naya set banta hai
