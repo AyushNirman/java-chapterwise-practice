@@ -1,0 +1,15 @@
+HashMap<Integer, String> map = new HashMap<>();
+// HashMap stores key-value pairs
+// Order is NOT guaranteed
+
+map.put(3, "C");
+map.put(1, "A");
+map.put(2, "B");
+// Random insertion order
+
+TreeMap<Integer, String> sortedMap = new TreeMap<>(map);
+// TreeMap automatically SORTS data by KEY
+// Uses Red-Black Tree internally
+
+System.out.println(sortedMap);
+// Output will be sorted by key → {1=A, 2=B, 3=C}
