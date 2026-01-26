@@ -1,0 +1,103 @@
+public class RotateArray {
+
+    // Method to reverse array from index l to r
+    static void reverse(int[] arr, int l, int r) {
+        while (l < r) {
+            int temp = arr[l];
+            arr[l] = arr[r];
+            arr[r] = temp;
+            l++;
+            r--;
+        }
+    }
+
+    // Rotate array by k steps
+    static void rotate(int[] arr, int k) {
+        int n = arr.length;
+
+        k = k % n;          // 1️⃣ reduce extra rotations
+
+        reverse(arr, 0, n - 1);     // 2️⃣ reverse whole array
+        reverse(arr, 0, k - 1);     // 3️⃣ reverse first k elements
+        reverse(arr, k, n - 1);     // 4️⃣ reverse remaining elements
+    }
+
+    public static void main(String[] args) {
+        int[] arr = {1, 2, 3, 4, 5};
+        int k = 2;
+
+        rotate(arr, k);
+
+        for (int x : arr)
+            System.out.print(x + " ");
+    }
+}
+
+
+
+
+
+🧠 LOGIC (INTERVIEW WORDS)
+
+“We use the reverse technique.
+First reverse the entire array, then reverse the first k elements, and finally reverse the remaining elements.
+This gives us the rotated array in-place without extra memory.”
+
+⏱️ TIME & SPACE COMPLEXITY
+Type	Value
+Time	O(n)
+Space	O(1) (in-place)
+
+👉 Best possible solution
+
+
+
+
+
+
+
+🧠 LOGIC (INTERVIEW WORDS)
+
+“We use the reverse technique.
+First reverse the entire array, then reverse the first k elements, and finally reverse the remaining elements.
+This gives us the rotated array in-place without extra memory.”
+
+⏱️ TIME & SPACE COMPLEXITY
+Type	Value
+Time	O(n)
+Space	O(1) (in-place)
+
+👉 Best possible solution
+
+❓ INTERVIEWER CAN ASK
+🔥 Q1: Why k % n?
+
+👉 Because rotating n times gives same array
+
+🔥 Q2: Left rotation?
+
+👉 Left rotate by k = Right rotate by n-k
+
+🔥 Q3: Without extra space?
+
+👉 Yes, reverse method does it in-place
+
+🔥 Q4: Can we use extra array?
+
+👉 Yes, but SC becomes O(n)
+
+🔥 Q5: Difference between rotate & shift?
+
+👉 Rotate keeps all elements, shift loses data
+
+🔥 Q6: Edge cases?
+
+k = 0
+
+k > n
+
+n = 1
+
+🧠 ONE-LINE SUMMARY (YAAD KAR)
+
+“Reverse the array thrice to rotate efficiently.”
