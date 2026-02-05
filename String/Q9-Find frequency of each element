@@ -20,5 +20,43 @@ public class Main {
 
         System.out.println(map);
         // Print final character frequency map
+
+
+/*for (Map.Entry<Integer, Integer> entry : map.entrySet()) {
+            System.out.println(entry.getKey() + " -> " + entry.getValue());
+        }*/
     }
 }
+
+
+⏱ Time & Space Complexity
+Time Complexity
+
+Loop over array → O(n)
+
+HashMap operations → O(1) average
+
+✅ Total: O(n)
+
+Space Complexity
+
+HashMap me worst case n elements
+✅ O(n)     
+
+
+🗣️ How to Explain Logic (What you say first)
+
+Tum bolo:
+
+“We need to find the frequency of each element in the array.
+For this, I’m using a HashMap where the key stores the element
+and the value stores how many times it appears.”
+
+“I iterate through the array once.
+For every element, I check if it already exists in the map.
+If yes, I increment its count.
+If not, I insert it with count 1.”
+
+“Finally, I traverse the map to print each element with its frequency.”
+
+⛳ Yahin pe interviewer ko clarity mil jaati hai
