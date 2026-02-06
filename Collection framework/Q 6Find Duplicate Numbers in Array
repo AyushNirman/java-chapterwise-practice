@@ -1,0 +1,53 @@
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+
+        int[] arr = {1, 2, 3, 2, 4, 1};
+        Map<Integer, Integer> map = new HashMap<>();
+
+        for (int n : arr) {
+            map.put(n, map.getOrDefault(n, 0) + 1);
+        }
+
+        for (int k : map.keySet()) {
+            if (map.get(k) > 1) {
+                System.out.print(k + " ");
+            }
+        }
+    }
+}
+
+⏱ Time & Space Complexity
+
+Time Complexity: O(n)
+
+One loop for array
+
+One loop for map
+
+Space Complexity: O(n)
+
+HashMap stores frequencies
+
+🎤 How to Explain This in Interview (Exact Lines)
+
+“I store frequencies using HashMap and then print elements whose count is greater than one.
+This avoids nested loops and keeps time complexity linear.”
+
+🔥 Follow-Up Questions Interviewers Ask
+❓ Can you do this without HashMap?
+
+✔ Yes, using sorting or frequency array (if range is limited)
+
+❓ What if array is sorted?
+
+✔ Just compare adjacent elements
+
+❓ What if you need duplicates only once?
+
+✔ Current code already prints each duplicate once
+
+❓ What if no duplicates exist?
+
+✔ Nothing will be printed
