@@ -1,0 +1,78 @@
+1️⃣ Count frequency of characters in a String
+💡 Logic
+
+Use HashMap
+
+Character = key, frequency = value
+
+Traverse string once
+
+
+🧠 Core Logic (Before Code – Interviewers LOVE this)
+
+“We traverse the string character by character.
+For each character, we store and update its count in a HashMap.
+If the character is already present, we increase its count, otherwise we initialize it with 1.”
+
+📌 Why HashMap?
+
+Fast lookup → O(1)
+
+Stores key = character, value = frequency
+
+
+
+
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+
+        String s = "java";
+        
+        // Step 1: Create map to store character frequency
+        Map<Character, Integer> map = new HashMap<>();
+
+        // Step 2: Traverse each character
+        for (char ch : s.toCharArray()) {
+
+            // Step 3: Increase count if exists, else put 1
+            map.put(ch, map.getOrDefault(ch, 0) + 1);
+        }
+
+        // Step 4: Print result
+        System.out.println(map);
+    }
+}
+
+
+⏱ Time & Space Complexity (Must Say)
+
+Time Complexity: O(n)
+
+Space Complexity: O(n)
+
+Where n = length of string
+
+🎤 How to Explain in Interview (Perfect Answer)
+
+“I iterate through the string and store character frequencies in a HashMap.
+I use getOrDefault to simplify frequency updates.
+This gives O(n) time complexity with a single traversal.”
+
+🔥 Interview Follow-Up Questions
+❓ Can you do it without HashMap?
+
+➡ Yes, using array of size 26 (only lowercase letters)
+
+❓ What if string has uppercase also?
+
+➡ Use array of size 52 or normalize using Character.toLowerCase()
+
+❓ What about ASCII characters?
+
+➡ Use array of size 256
+
+❓ Why not nested loops?
+
+➡ That would be O(n²) – inefficient
