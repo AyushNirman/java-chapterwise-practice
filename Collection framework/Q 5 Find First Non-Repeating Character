@@ -1,0 +1,53 @@
+🧠 Core Logic (Explain BEFORE Code)
+
+“First, I count the frequency of each character.
+Then, I traverse the string again in the same order and return the first character whose frequency is 1.”
+
+📌 Why 2 loops?
+
+HashMap doesn’t preserve original order
+
+String order matters for “first” 
+
+
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+
+        String s = "swiss";
+        Map<Character, Integer> map = new HashMap<>();
+
+        // Step 1: Count frequency
+        for (char c : s.toCharArray()) {
+            map.put(c, map.getOrDefault(c, 0) + 1);
+        }
+
+        // Step 2: Find first non-repeating character
+        for (char c : s.toCharArray()) {
+            if (map.get(c) == 1) {
+                System.out.println(c);
+                break;
+            }
+        }
+    }
+}
+
+
+
+Time Complexity: O(n)
+
+1 loop for counting
+
+1 loop for checking
+
+Space Complexity: O(n)
+
+HashMap stores characters
+
+🎤 How to Explain This in Interview (Exact Lines)
+
+“I use HashMap to store frequency of characters.
+Then I traverse the string again to preserve order and find the first character whose frequency is one.
+This approach runs in linear time.”
+ 
