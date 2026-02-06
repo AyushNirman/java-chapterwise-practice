@@ -1,42 +1,92 @@
-import java.util.Arrays;
-public class Main
-{
-    public static void main(String[] args) {
-        System.out.println("Remove duplicates using Two Pointers");
+public class Main {
 
-        int arr[] = {2,3,10,2,3,4,2,40,40,2,3,7};
+    // Method to remove duplicates from sorted array
+    static int removeDuplicates(int[] arr) {
 
-        // Step 1: Sort array so duplicates come together
-        Arrays.sort(arr);
+        // Edge case: empty array
+        if (arr.length == 0) return 0;
 
-        int n = arr.length;
+        int j = 0; // index of last unique element
 
-        // i = slow pointer → stores unique elements
-        // j = fast pointer → scans the array
-        int i = 0, j = 1;
+        // Traverse array from second element
+        for (int i = 1; i < arr.length; i++) {
 
-        // Step 2: Traverse whole array
-        while (j < n) {
-
-            // If same → skip duplicates
-            if (arr[j] == arr[i]) {
-                j++;    // move j forward
-            }
-
-            // If different → found a new unique element
-            else {
-                i++;          // move slow pointer
-                arr[i] = arr[j]; // store the unique element at new position
+            // If new element is different, it's unique
+            if (arr[i] != arr[j]) {
+                arr[++j] = arr[i]; // place unique element ahead
             }
         }
 
-        // i holds last index of unique elements
-        int uniqueCount = i + 1;
+        // Return count of unique elements
+        return j + 1;
+    }
 
-        // Print unique elements
-        System.out.print("Unique elements: ");
-        for (int k = 0; k < uniqueCount; k++) {
-            System.out.print(arr[k] + " ");
+    public static void main(String[] args) {
+
+        int[] arr = {1, 1, 2, 2, 3, 4, 4};
+
+        int len = removeDuplicates(arr);
+
+        // Print only unique elements
+        for (int i = 0; i < len; i++) {
+            System.out.print(arr[i] + " ");
         }
     }
 }
+
+
+
+
+⏱ Time & Space Complexity
+Time Complexity
+
+Single loop → O(n)
+
+Space Complexity
+
+No extra array → O(1)
+
+🗣️
+
+“This is an in-place solution with optimal time and space complexity.”
+
+
+
+🎯 Interviewer Follow-Up Questions (VERY IMPORTANT)
+1️⃣ Why array must be sorted?
+
+🗣️
+
+“Because duplicates are adjacent, which makes comparison easy.”
+
+2️⃣ What if array is not sorted?
+
+🗣️
+
+“We need sorting or extra space, otherwise time complexity becomes O(n²).”
+
+3️⃣ Why return length instead of new array?
+
+🗣️
+
+“To avoid extra memory and follow in-place modification.”
+
+4️⃣ What is the two-pointer technique?
+
+🗣️
+
+“Using two indices to traverse and modify data efficiently in one pass.”
+
+5️⃣ Edge cases?
+
+🗣️
+
+Empty array
+
+Single element array
+
+
+
+
+
+
