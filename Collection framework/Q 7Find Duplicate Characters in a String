@@ -1,0 +1,51 @@
+import java.util.*;
+
+public class Main {
+
+    public static void main(String[] args) {
+
+        String s = "programming";
+
+        // LinkedHashMap preserves insertion order
+        Map<Character, Integer> map = new LinkedHashMap<>();
+
+        // Count frequency
+        for (char c : s.toCharArray()) {
+            map.put(c, map.getOrDefault(c, 0) + 1);
+        }
+
+        // Print duplicates in order of appearance
+        System.out.print("Duplicate characters: ");
+        for (Map.Entry<Character, Integer> entry : map.entrySet()) {
+            if (entry.getValue() > 1) {
+                System.out.print(entry.getKey() + " ");
+            }
+        }
+    }
+}
+
+⏱ Complexity
+
+Time: O(n) → traverse string once
+
+Space: O(n) → store unique characters
+
+🎤 How to Explain in Interview
+
+“I use LinkedHashMap to count character frequencies and maintain insertion order.
+Then I print only characters with frequency > 1.
+This is optimal and clean, runs in linear time, and keeps output in original order.”
+
+🔥 Follow-Up Questions Interviewers May Ask
+
+Can you do it without extra space?
+
+Only if character set is fixed (like lowercase a-z) using array of size 26.
+
+What if case-insensitive?
+
+Convert string to lowercase first.
+
+What if you want most repeated character?
+
+Track maxFreq while building map.
