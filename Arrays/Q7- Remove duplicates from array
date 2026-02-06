@@ -18,7 +18,7 @@ public class Main {
         }
 
         // Return count of unique elements
-        return j + 1;
+        return j + 1;  //if there is no method fer hum for loop mei i<=j; tak jeayga  so share onj
     }
 
     public static void main(String[] args) {
