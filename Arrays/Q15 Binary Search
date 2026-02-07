@@ -14,7 +14,13 @@ static int binarySearch(int[] arr, int key) {
 
         // 4️⃣ Find middle index safely
         //    Prevents integer overflow
-        //    mid = (low + high) / 2  ❌ (can overflow)
+        //    mid = (low + high) / 2  ❌ (can overflow)                                                        🧠 Mnemonic:
+"Start + Half the Gap"
+
+✅ Short Example:
+int low = 2;
+int high = 10;
+int mid = low + (high - low) / 2; // = 2 + (8)/2 = 6 
         int mid = low + (high - low) / 2;
 
         // 5️⃣ If middle element is the key → FOUND
