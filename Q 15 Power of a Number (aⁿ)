@@ -17,3 +17,19 @@ static long power(int base, int exp) {
     // 4️⃣ Final result is base^exp
     return result;
 }
+
+
+
+
+
+public class Main {
+    public static void main(String[] args) {
+        int base = 5;
+        int exponent = 3;
+
+        // Math.pow(base, exponent)
+        int result = (int) Math.pow(base, exponent);
+
+        System.out.println(base + " to the power of " + exponent + " is: " + result);
+    }
+}
