@@ -1,0 +1,148 @@
+😂 bhai perfect — **exam / interview mode ON**
+Main tujhe **exact comment steps**, **TC/SC**, aur **important interview Q&A** de raha hoon.
+Seedha likh-ke yaad kar sakta hai 👍
+
+---
+
+## Kadane’s Algorithm — Steps (COMMENT FORMAT)
+
+```java
+// 1. Take two variables:
+//    currentSum → sum of current subarray
+//    maxSum → maximum subarray sum so far
+
+// 2. Initialize both with first element of array
+//    (important to handle all-negative arrays)
+
+// 3. Traverse array from index 1 to end
+
+// 4. For each element, decide:
+//    - start new subarray from current element
+//    - OR continue previous subarray
+//    currentSum = max(arr[i], currentSum + arr[i])
+
+// 5. Update maxSum if currentSum is greater
+//    maxSum = max(maxSum, currentSum)
+
+// 6. After loop ends, maxSum is the answer
+```
+
+---
+
+## Code with Comments (FINAL)
+
+```java
+public static int maxSubArray(int[] arr) {
+
+    // current sum of subarray
+    int currentSum = arr[0];
+
+    // maximum sum found so far
+    int maxSum = arr[0];
+
+    // traverse from second element
+    for (int i = 1; i < arr.length; i++) {
+
+        // choose max: start new OR continue old
+        currentSum = Math.max(arr[i], currentSum + arr[i]);
+
+        // update overall maximum
+        maxSum = Math.max(maxSum, currentSum);
+    }
+
+    // return maximum subarray sum
+    return maxSum;
+}
+```
+
+---
+
+## Time Complexity (TC)
+
+```
+O(n)
+```
+
+✔ Single loop
+✔ Each element visited once
+
+---
+
+## Space Complexity (SC)
+
+```
+O(1)
+```
+
+✔ No extra array used
+✔ Only two variables
+
+---
+
+## IMPORTANT INTERVIEW QUESTIONS & ANSWERS 🔥
+
+### Q1. What problem does Kadane’s Algorithm solve?
+
+**Answer:**
+It finds the **maximum sum of a contiguous subarray** in an array.
+
+---
+
+### Q2. Why do we drop the sum when it becomes negative?
+
+**Answer:**
+Because a negative sum will **reduce future subarray sums**, so it is better to start fresh.
+
+---
+
+### Q3. Why initialize with first element instead of 0?
+
+**Answer:**
+To correctly handle **all-negative arrays**.
+
+Example:
+
+```
+[-3, -2, -5]
+Answer = -2
+```
+
+---
+
+### Q4. Can Kadane’s Algorithm work if all numbers are negative?
+
+**Answer:**
+Yes, if we initialize `currentSum` and `maxSum` with the **first element**.
+
+---
+
+### Q5. Is Kadane’s Algorithm greedy or dynamic programming?
+
+**Answer:**
+It is a **Dynamic Programming** algorithm with **greedy choice**.
+
+---
+
+### Q6. Can we find subarray indices using Kadane’s Algorithm?
+
+**Answer:**
+Yes, by storing start and end indices while updating sums.
+
+---
+
+### Q7. What is the brute force approach and its TC?
+
+**Answer:**
+Check all subarrays using nested loops.
+Time Complexity:
+
+```
+O(n²)
+```
+
+---
+
+## ONE-LINE EXAM ANSWER 📝
+
+**Kadane’s Algorithm uses dynamic programming to find the maximum sum subarray in O(n) time by discarding negative prefix sums.**
+
