@@ -1,162 +1,62 @@
-public class MoveZeroesBest {
+public class MoveZerosToEnd {
 
-    static void moveZeroes(int[] arr) {
+    public static void moveZeroes(int[] arr) {
 
-    if (arr.length <= 1)
-    return;
+        // index will store position for next non-zero element
+        int index = 0;
 
-        int j = 0; // points to position where next non-zero should go
-
+        // Step 1: Move all non-zero elements to the front
         for (int i = 0; i < arr.length; i++) {
 
-            // if current element is non-zero
+            // If current element is not zero
             if (arr[i] != 0) {
 
-                // swap only when i and j are different
-                if (i != j) {
-                    swap(arr, i, j);
-                }
+                // Place it at the 'index' position
+                arr[index] = arr[i];
 
-                j++; // move j forward
+                // Move index to next position
+                index++;
             }
+        }
+
+        // Step 2: Fill remaining positions with 0
+        while (index < arr.length) {
+            arr[index] = 0;
+            index++;
         }
     }
 
-    // swap method
-    static void swap(int[] arr, int i, int j) {
-        int temp = arr[i];
-        arr[i] = arr[j];
-        arr[j] = temp;
-    }
-}
-
-public class MoveZeroesBest {
-
-    static void moveZeroes(int[] arr) {
-
-        int j = 0; // points to position where next non-zero should go
-
-        for (int i = 0; i < arr.length; i++) {
-
-            // if current element is non-zero
-            if (arr[i] != 0) {
-
-                // swap only when i and j are different
-                if (i != j) {
-                    swap(arr, i, j);
-                }
-
-                j++; // move j forward
-            }
-        }
-    }
-
-    // swap method
-    static void swap(int[] arr, int i, int j) {
-        int temp = arr[i];
-        arr[i] = arr[j];
-        arr[j] = temp;
-    }
-}
-
-
-
-
-
-
-🧠 STEP-WISE LOGIC (INTERVIEW EXPLANATION)
-🔹 Pointer Meaning
-
-i → scans the array
-
-j → tracks correct position of non-zero
-
-
-
-
-
-| i | j | arr[i] | action    | array        |
-| - | - | ------ | --------- | ------------ |
-| 0 | 0 | 0      | skip      | [0,1,0,3,12] |
-| 1 | 0 | 1      | swap(1,0) | [1,0,0,3,12] |
-| 2 | 1 | 0      | skip      | [1,0,0,3,12] |
-| 3 | 1 | 3      | swap(3,1) | [1,3,0,0,12] |
-| 4 | 2 | 12     | swap(4,2) | [1,3,12,0,0] |
-
-
-
-
-
-🗣 INTERVIEW ONE-LINER (STEAL THIS)
-
-“I used a two-pointer approach where one pointer scans the array and the other tracks the position for non-zero elements. This keeps the solution in O(n) time and O(1) space.”
-
-🆚 WHY THIS IS BEST
-Metric	Value
-Time	O(n)
-Space	O(1)    
-
-
-
-
-
-
-
-
-
-
-public class Main {
     public static void main(String[] args) {
-
-        // Input array with zeroes
-        int[] arr = {0, 1, 0, 3, 12};
-
-        // Length of array
-        int n = arr.length;
-
-        // Pointer to track position where next NON-ZERO should go
-        int nonzeroIndex = 0;
-
-        // STEP 1: Move all non-zero elements to the front
-        for (int i = 0; i < n; i++) {
-
-            // If current element is NOT zero
-            if (arr[i] != 0) {
-
-                // Place it at nonzeroIndex position
-                arr[nonzeroIndex] = arr[i];
-
-                // Move pointer forward for next non-zero
-                nonzeroIndex++;
-            }
-        }
-
-        // STEP 2: Fill remaining positions with zero
-        while (nonzeroIndex < n) {
-
-            arr[nonzeroIndex] = 0;
-            nonzeroIndex++;
-        }
+        int[] arr = {1, 0, 2, 0, 3};
+        moveZeroes(arr);
 
         // Print result
-        for (int x : arr)
-            System.out.println(x);
+        for (int num : arr) {
+            System.out.print(num + " ");
+        }
     }
 }
 
-🧠 WHY THIS LOGIC IS SMART
-✅ Order preserved
 
-Because non-zero elements are placed in the same order they appear
+6️⃣ Time complexity?
 
-✅ No unnecessary swaps
+Answer:
+O(n) — array ek hi baar traverse hota hai.
 
-Swapping costs more operations
+7️⃣ Space complexity?
 
-This approach writes only when needed
+Answer:
+O(1) — koi extra array ya data structure use nahi kiya.       
 
-✅ Single pass + fill
 
-Time: O(n)
 
-Space: O(1)
+
+
+
+🔄 Advanced Follow-ups (Sometimes Asked)
+11️⃣ Modify solution to move all negative numbers to end
+
+Answer:
+Same logic, bas condition change:
+
+if (arr[i] >= 0) 
