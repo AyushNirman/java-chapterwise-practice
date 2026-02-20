@@ -1,0 +1,80 @@
+🔹 Step-by-step explanation
+
+Left rotation by K = move first K elements to end.
+
+Reversal algorithm (left version):
+
+Reverse first K elements
+
+Reverse remaining elements (K → n-1)
+
+Reverse whole array
+
+🔹 Why it works
+
+Reverse first K → first elements are reversed
+
+Reverse rest → back part reversed
+
+Reverse whole → array in correct left-rotated order
+
+Time: O(n)
+Space: O(1)
+
+
+
+
+public class RotateArrayLeft {
+
+    // Helper function to reverse array from start to end
+    static void reverse(int[] arr, int start, int end) {
+        while (start < end) {
+            int temp = arr[start];
+            arr[start] = arr[end];
+            arr[end] = temp;
+
+            start++;
+            end--;
+        }
+    }
+
+    // Function to rotate array to the left by K positions
+    static void rotateLeft(int[] arr, int k) {
+        int n = arr.length;
+
+        // Handle k > n
+        k = k % n;
+
+        // Step 1: Reverse first K elements
+        reverse(arr, 0, k - 1);
+Step 1: Reverse first K elements
+reverse(0,1)
+[1, 2, 3, 4, 5] → [2, 1, 3, 4, 5]
+
+        // Step 2: Reverse remaining elements
+        reverse(arr, k, n - 1);
+Step 2: Reverse remaining elements
+reverse(2,4)
+[2, 1, 3, 4, 5] → [2, 1, 5, 4, 3]
+
+        // Step 3: Reverse the whole array
+        reverse(arr, 0, n - 1);
+Step 3: Reverse whole array
+reverse(0,4)
+[2, 1, 5, 4, 3] → [3, 4, 5, 1, 2]
+    }
+
+    public static void main(String[] args) {
+        int[] arr = {1, 2, 3, 4, 5};
+        int k = 2;
+
+        System.out.println("Original Array:");
+        for (int num : arr) System.out.print(num + " ");
+        System.out.println();
+
+        rotateLeft(arr, k);
+
+        System.out.println("After Rotating Left by " + k + " positions:");
+        for (int num : arr) System.out.print(num + " ");
+    }
+}
