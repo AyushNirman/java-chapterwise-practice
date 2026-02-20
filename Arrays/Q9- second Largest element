@@ -29,6 +29,9 @@ class Main {
                 secondLargest = arr[i];
             }
         }
+if (secondLargest == Integer.MIN_VALUE) {
+            return -1; // No second largest (all elements same)
+        }
 
         // Print second largest element
         System.out.println(secondLargest);
