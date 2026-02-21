@@ -1,0 +1,174 @@
+📌 Majority Element in an Array
+
+## 🧠 Problem Statement
+
+Given an array of integers, find the **majority element**.
+A majority element is an element that appears **more than n/2 times**, where `n` is the size of the array.
+
+* If a majority element exists → return it
+* Otherwise → return `-1`
+
+### Example
+
+```text
+Input:  [3, 3, 4, 2, 4, 4, 2, 4, 4]
+Output: 4
+```
+
+---
+
+## 💡 Approach Used
+
+### Boyer–Moore Voting Algorithm
+
+This algorithm works on the idea that:
+
+> If an element appears more than n/2 times, it will **always survive cancellation** with other elements.
+
+---
+
+## 🪜 Logic (Step-by-Step)
+
+### Step 1: Assume first element as candidate
+
+* Take first element as a **possible majority**
+* Initialize count = 1
+
+### Step 2: Traverse the array
+
+* If current element == candidate → increase count
+* Else → decrease count
+* If count becomes 0:
+
+  * Change candidate to current element
+  * Reset count = 1
+
+### Step 3: Verify candidate
+
+* Count occurrences of candidate
+* If occurrences > n/2 → majority element found
+* Else → no majority element
+
+---
+
+## 💻 Java Code (Well Commented – GitHub Ready)
+
+```java
+public class MajorityElement {
+
+    public static int findMajority(int[] arr) {
+
+        // Step 1: Assume first element as candidate
+        int candidate = arr[0];
+        int count = 1;
+
+        // Step 2: Find possible candidate
+        for (int i = 1; i < arr.length; i++) {
+
+            if (arr[i] == candidate) {
+                // Same element supports the candidate
+                count++;
+            } else {
+                // Different element opposes the candidate
+                count--;
+            }
+
+            // If count becomes zero, select new candidate
+            if (count == 0) {
+                candidate = arr[i];
+                count = 1;
+            }
+        }
+
+        // Step 3: Verify if candidate is actually majority
+        count = 0;
+        for (int num : arr) {
+            if (num == candidate) {
+                count++;
+            }
+        }
+
+        // Check majority condition
+        if (count > arr.length / 2) {
+            return candidate;
+        }
+
+        return -1; // No majority element
+    }
+
+    public static void main(String[] args) {
+        int[] arr = {3, 3, 4, 2, 4, 4, 2, 4, 4};
+        System.out.println(findMajority(arr));
+    }
+}
+```
+
+---
+
+## ⏱ Time & Space Complexity
+
+| Complexity Type      | Value  |
+| -------------------- | ------ |
+| **Time Complexity**  | `O(n)` |
+| **Space Complexity** | `O(1)` |
+
+✔ Single pass to find candidate
+✔ One pass to verify
+✔ No extra data structure used
+
+---
+
+## ⭐ Important Points (Mention in Interview / README)
+
+* Boyer–Moore works **only when majority element definition is > n/2**
+* Candidate selection **does not guarantee majority**, verification is mandatory
+* Efficient compared to:
+
+  * Brute force `O(n²)`
+  * HashMap `O(n)` space
+
+---
+
+## 🎤 Expected Interview Questions
+
+### Q1. Why do we need verification step?
+
+👉 Because Boyer–Moore only gives a **possible candidate**, not confirmation.
+
+---
+
+### Q2. What if no majority element exists?
+
+👉 After verification, if count ≤ n/2, return `-1`.
+
+---
+
+### Q3. Can this work if majority condition is n/3?
+
+👉 ❌ No. This algorithm works only for **n/2 condition**.
+
+---
+
+### Q4. Alternative approach?
+
+👉 Using HashMap:
+
+* Time: `O(n)`
+* Space: `O(n)`
+
+---
+
+### Q5. Why Boyer–Moore is preferred?
+
+👉 Because it uses:
+
+* **O(1) space**
+* **O(n) time**
+* Clean logic
+
+---
+
+## 🧠 One-Line Interview Explanation
+
+> “I used the Boyer–Moore Voting Algorithm to find the majority element in O(n) time and O(1) space, followed by a verification step.”
+
