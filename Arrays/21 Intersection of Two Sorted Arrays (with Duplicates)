@@ -1,0 +1,211 @@
+🔥 Perfect.
+Ab yeh **FULL GitHub-ready NOTES + CODE (compiler form)** hai —
+tum seedha **Arrays section** me daal sakte ho.
+Interview + revision + confidence = 💯
+
+---
+
+# 📌 Intersection of Two Sorted Arrays (with Duplicates)
+
+## 🧠 Problem Statement (Simple Words)
+
+Hume **2 sorted arrays** diye gaye hain
+✔ arrays me **duplicate elements ho sakte hain**
+
+Task:
+
+* Dono arrays ke **common elements** nikalne hain
+* **Sorted order** me
+* **Jitni baar common aaye, utni baar output me aaye**
+
+---
+
+## 🧠 Logic We Are Using (Human Thinking)
+
+### Hum kya kar rahe hain?
+
+* Dono arrays ko **saath-saath traverse** kar rahe hain
+* 2 pointers use kar rahe hain:
+
+  * `i` → first array
+  * `j` → second array
+
+---
+
+### 💡 Important Observation
+
+> Arrays **already sorted** hain
+> Isliye:
+
+* Chhota element **kabhi baad me equal nahi hoga**
+* Peeche jaane ki zarurat nahi
+
+---
+
+## 🔑 Rules (Yahi pura logic hai)
+
+1️⃣ Agar `a[i] < b[j]`
+👉 `a[i]` chhota hai → `i++`
+
+2️⃣ Agar `b[j] < a[i]`
+👉 `b[j]` chhota hai → `j++`
+
+3️⃣ Agar `a[i] == b[j]`
+👉 **Common element mila**
+
+* Answer me add karo
+* `i++` aur `j++`
+
+---
+
+## 🧪 Dry Run (Short)
+
+```text
+a = [1, 2, 2, 3, 4]
+b = [2, 2, 4, 6]
+
+Compare:
+1 vs 2 → skip 1
+2 vs 2 → add 2
+2 vs 2 → add 2
+3 vs 4 → skip 3
+4 vs 4 → add 4
+
+Output: [2, 2, 4]
+```
+
+---
+
+## ✅ Why This Approach Is Best
+
+* Har element **sirf ek baar** check ho raha hai
+* No extra loops
+* Fast & clean
+* Interview favorite approach
+
+---
+
+## 💻 Java Code (Compiler Form – Copy Paste Ready)
+
+```java
+import java.util.*;
+
+public class Main {
+
+    // Function to find intersection of two sorted arrays
+    static ArrayList<Integer> intersection(int[] a, int[] b) {
+
+        // Result list
+        ArrayList<Integer> result = new ArrayList<>();
+
+        // Pointers for both arrays
+        int i = 0, j = 0;
+
+        // Traverse both arrays
+        while (i < a.length && j < b.length) {
+
+            // If element in a is smaller, move i
+            if (a[i] < b[j]) {
+                i++;
+            }
+            // If element in b is smaller, move j
+            else if (b[j] < a[i]) {
+                j++;
+            }
+            // If both elements are equal
+            else {
+                result.add(a[i]); // common element
+                i++;
+                j++;
+            }
+        }
+
+        return result;
+    }
+
+    // Driver code
+    public static void main(String[] args) {
+
+        int[] a = {1, 2, 2, 3, 4};
+        int[] b = {2, 2, 4, 6};
+
+        ArrayList<Integer> ans = intersection(a, b);
+
+        System.out.println("Intersection: " + ans);
+    }
+}
+```
+
+---
+
+## ⏱ Time Complexity (TC)
+
+```
+O(n + m)
+```
+
+* `n` → size of first array
+* `m` → size of second array
+* Dono arrays **ek hi baar traverse** ho rahe hain
+
+---
+
+## 🧮 Space Complexity (SC)
+
+```
+O(k)
+```
+
+* `k` → number of common elements stored in result list
+
+---
+
+## 🎤 Interviewer Can Ask (Very Important)
+
+### Q1️⃣ Why not nested loops?
+
+👉 That would be `O(n*m)` → very slow
+
+---
+
+### Q2️⃣ Why two pointers work?
+
+👉 Because arrays are **sorted**
+
+---
+
+### Q3️⃣ What if arrays are not sorted?
+
+👉 First sort them, then apply same logic
+
+---
+
+### Q4️⃣ Does this handle duplicates?
+
+👉 Yes, duplicates are added **as many times as they appear in both**
+
+---
+
+### Q5️⃣ Can we do it using HashSet?
+
+👉 Yes, but:
+
+* Extra space
+* Sorted order not guaranteed
+
+---
+
+## 🧠 One-Line Interview Answer
+
+> “Since arrays are sorted, I used two pointers to traverse them simultaneously and collected common elements efficiently in linear time.”
+
+---
+
+Agar chaho next GitHub-ready:
+
+* ✅ Union of Arrays
+* ✅ Intersection without duplicates
+* ✅ Remove duplicates (sorted)
+* ✅ Majority Element (Moore’s Voting)
+
+bolo kaunsa 💪
