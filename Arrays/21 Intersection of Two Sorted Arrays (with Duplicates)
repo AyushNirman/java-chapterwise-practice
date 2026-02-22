@@ -123,6 +123,18 @@ public class Main {
         return result;
     }
 
+
+
+
+
+
+while (i < arr1.length) System.out.print(arr1[i++] + " ");
+while (j < arr2.length) System.out.print(arr2[j++] + " ");
+
+
+
+
+
     // Driver code
     public static void main(String[] args) {
 
