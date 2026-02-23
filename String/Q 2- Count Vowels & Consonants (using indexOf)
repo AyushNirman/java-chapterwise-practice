@@ -39,3 +39,38 @@ Alphabet check → indexOf vowel → else consonant
 🎯 Interview Explanation (1–2 lines)
 
 “I loop once through the string, ignore non-alphabets, and use indexOf() on a fixed vowel string to classify vowels and consonants.” 
+
+
+
+
+public class CountCharacters {
+    public static void main(String[] args) {
+        String str = "Hello World 123!";
+        int vowels = 0, consonants = 0, digits = 0;
+
+        // Convert to lowercase to simplify comparisons
+        str = str.toLowerCase();
+
+        for (int i = 0; i < str.length(); i++) {
+            char ch = str.charAt(i);
+
+            if (ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u') {
+                vowels++;
+            } else if (Character.isLetter(ch)) {
+                // If it's a letter but not a vowel, it's a consonant
+                consonants++;
+            } else if (Character.isDigit(ch)) {
+                digits++;
+            }
+        }
+
+        System.out.println("Vowels: " + vowels);
+        System.out.println("Consonants: " + consonants);
+        System.out.println("Digits: " + digits);
+    }
+}
+      TC: 
+, where 
+ is the length of the string. The program performs a single pass through the string to examine each character.
+SC: 
+, as the algorithm only uses a few integer variables (vowels, consonants, digits) to store counts. This does not grow with the size of the input string.
