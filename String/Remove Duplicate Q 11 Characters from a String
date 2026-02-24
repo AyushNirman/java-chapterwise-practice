@@ -1,0 +1,157 @@
+
+# 🟢 Question: Remove Duplicate Characters from a String
+
+---
+
+## 📌 Problem Statement
+
+Given a string, **remove duplicate characters** and return the result **while preserving the original order**.
+
+---
+
+## 📥 Input
+
+```java
+"banana"
+```
+
+## 📤 Output
+
+```java
+"ban"
+```
+
+---
+
+## 🧠 Approach Used
+
+* **Boolean Array (size 256)** for ASCII characters
+* **StringBuilder** to build result efficiently
+
+---
+
+## 🧩 Logic (Step-by-Step)
+
+1. Create a boolean array `seen[256]`
+   → to track whether a character has appeared before
+2. Create `StringBuilder res`
+   → to store result string
+3. Traverse string character by character
+4. For each character:
+
+   * If it is **not seen before**
+
+     * Mark it as seen
+     * Add it to result
+   * Else → skip (duplicate)
+5. Return result as string
+
+---
+
+## ✅ Java Code (With IMPORTANT COMMENTS)
+
+```java
+public class RemoveDuplicateCharacters {
+
+    public static String removeDupcharacter(String str) {
+
+        // Boolean array to store visited characters
+        // Size 256 because ASCII characters range from 0–255
+        boolean[] seen = new boolean[256];
+
+        // StringBuilder for efficient string creation
+        StringBuilder res = new StringBuilder();
+
+        // Loop through each character of the string
+        for (int i = 0; i < str.length(); i++) {
+
+            // Get current character
+            char ch = str.charAt(i);
+
+            // Check if character is NOT seen before
+            if (!seen[ch]) {
+
+                // IMPORTANT: mark character as seen
+                // Without this line, duplicates will NOT be removed
+                seen[ch] = true;
+
+                // Add character to result
+                res.append(ch);
+            }
+        }
+
+        // Convert StringBuilder to String and return
+        return res.toString();
+    }
+}
+```
+
+
+
+
+ersion 1 (Very simple)
+
+“Time complexity is O(n) since we traverse the string once.
+Space complexity is O(1) because we use a fixed-size boolean array
+---
+
+## ⏱ Time Complexity
+
+```java
+O(n)
+```
+
+* Each character processed once
+
+---
+
+## 📦 Space Complexity
+
+```java
+O(1)
+```
+
+* Boolean array size is fixed (256)
+
+---
+
+## 🚨 IMPORTANT NOTES (VERY IMPORTANT – REMEMBER THIS)
+
+```java
+// seen[ch] = true;
+// This line is CRITICAL
+// It updates memory that character is already visited
+// If you skip this line → duplicates will NOT be removed
+```
+
+```java
+// boolean[256] works ONLY for ASCII characters
+// If Unicode characters are present → use HashSet instead
+```
+
+```java
+// StringBuilder is used instead of String concatenation
+// Because String concatenation is slow in Java
+```
+
+---
+
+## ❌ Common Mistakes (Freshers)
+
+```java
+// 1. Forgetting: seen[ch] = true
+// 2. Using nested loops → O(n^2)
+// 3. Using String += ch (slow)
+// 4. Not preserving original order
+// 5. Using boolean[256] without knowing ASCII concept
+```
+
+---
+
+## 🗣 Interview One-Line Explanation
+
+```java
+// I use a boolean array to track visited ASCII characters.
+// Each character maps to an index, giving O(1) lookup.
+// I append only the first occurrence to the result.
+```
