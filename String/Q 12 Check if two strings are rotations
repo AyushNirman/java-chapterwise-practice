@@ -1,0 +1,186 @@
+
+## 📌 Question
+
+Given two strings `s1` and `s2`, check whether `s2` is a **rotation** of `s1`.
+
+---
+
+## 📥 Input
+
+```text
+s1 = "abcd"
+s2 = "cdab"
+```
+
+## 📤 Output
+
+```text
+true
+```
+
+More examples:
+
+* `"abcd"` & `"dabc"` → ✅ true
+* `"abcd"` & `"acbd"` → ❌ false
+* `"abc"` & `"abc"` → ✅ true
+
+---
+
+## 1️⃣ What does “rotation” mean? (Simple words)
+
+A string is a **rotation** if:
+
+* You cut the string at some point
+* Move the first part to the end
+* Order of characters remains same
+
+Example:
+
+```text
+"abcd"
+→ cut after "ab"
+→ "cd" + "ab"
+→ "cdab"
+```
+
+---
+
+## 2️⃣ Key observation (INTERVIEW TRICK 🔥)
+
+👉 If `s2` is a rotation of `s1`, then:
+
+```text
+s2 will always be a substring of (s1 + s1)
+```
+
+Example:
+
+```text
+s1 = "abcd"
+s1 + s1 = "abcdabcd"
+s2 = "cdab"  → present ✔
+```
+
+---
+
+## 3️⃣ Algorithm / Data Structure Used
+
+* **String concatenation**
+* **Substring search (`contains`)**
+
+### Why?
+
+* Clean logic
+* No extra loops
+* Interview-friendly & efficient
+
+---
+
+## 4️⃣ Step-by-step Logic
+
+1. If lengths of `s1` and `s2` are different → return `false`
+2. Concatenate `s1` with itself → `temp = s1 + s1`
+3. Check if `temp` contains `s2`
+4. If yes → rotation exists
+5. Else → not a rotation
+
+---
+
+## 5️⃣ Java Code
+
+```java
+class Solution {
+    public boolean areRotations(String s1, String s2) {
+
+        // Step 1: Length check
+        if (s1 == null || s2 == null || s1.length() != s2.length()) {
+            return false;
+        }
+
+        // Step 2: Concatenate first string with itself
+        String temp = s1 + s1;
+
+        // Step 3: Check if s2 is substring
+        return temp.contains(s2);
+    }
+}
+```
+
+---
+
+## 6️⃣ Line-by-line explanation
+
+```java
+if (s1.length() != s2.length())
+```
+
+👉 Rotations must have equal length
+
+---
+
+```java
+String temp = s1 + s1;
+```
+
+👉 Creates all possible rotations implicitly
+
+---
+
+```java
+temp.contains(s2);
+```
+
+👉 Checks if `s2` matches any rotation of `s1`
+
+---
+
+## 7️⃣ Dry Run Example
+
+```text
+s1 = "abcd"
+s2 = "cdab"
+
+temp = "abcdabcd"
+"cdab" ∈ "abcdabcd" → true
+```
+
+---
+
+## 8️⃣ Time & Space Complexity
+
+### ⏱ Time Complexity
+
+```text
+O(n)
+```
+
+* `contains()` internally scans string
+
+### 📦 Space Complexity
+
+```text
+O(n)
+```
+
+* Extra string `s1 + s1`
+
+---
+
+## 9️⃣ Common mistakes freshers make 🚫
+
+1. ❌ Using nested loops (O(n²))
+2. ❌ Not checking length first
+3. ❌ Confusing rotation with permutation
+4. ❌ Checking only one shift
+5. ❌ Case mismatch (`"Abc"` vs `"abc"`)
+
+---
+
+## 🔊 How to explain in interview (SHORT & PERFECT)
+
+> “Two strings are rotations if the second string is a substring of the first string concatenated with itself, provided both have equal length.”
+
+💯 This line alone can crack the question.
+
+
+
