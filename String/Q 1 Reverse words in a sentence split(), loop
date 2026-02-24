@@ -1,31 +1,74 @@
-public class Main {
-    public static void main(String[] args) {
+import java.util.Scanner;
 
-        // Step 1: Input string
-        String str = "I love Java";
+public class ReverseWordOrder {
 
-        // Step 2: Split sentence into words using space
-        String[] words = str.split(" ");
-
-        // Step 3: Create empty string to store final answer
-        String result = "";
-
-        // Step 4: Loop through each word
-        for (String word : words) {
-
-            // Step 5: Create empty string to store reversed word
-            String rev = "";
-
-            // Step 6: Reverse current word using loop
-            for (int i = word.length() - 1; i >= 0; i--) {
-                rev = rev + word.charAt(i);
-            }
-
-            // Step 7: Add reversed word to result with space
-            result = result + rev + " ";
+    /**
+     * Function to reverse the order of words in a string
+     * @param s Input string
+     * @return String with words in reversed order
+     */
+    public static String reverseWordOrder(String s) {
+        // Step 1: Handle null or empty strings
+        if (s == null || s.trim().isEmpty()) {
+            return "";
         }
 
-        // Step 8: Print final output (trim removes last extra space)
-        System.out.println(result.trim());
+        // Step 2: Remove leading/trailing spaces and split by one or more spaces
+        String[] words = s.trim().split("\\s+");
+
+        // Step 3: Use StringBuilder for efficient string concatenation
+        StringBuilder result = new StringBuilder();
+
+        // Step 4: Loop from last word to first word
+        for (int i = words.length - 1; i >= 0; i--) {
+            result.append(words[i]); // Append the current word
+            if (i != 0) result.append(" "); // Add space between words except after last
+        }
+
+        // Step 5: Convert StringBuilder to String and return
+        return result.toString();
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        // Input example
+        System.out.println("Enter a string:");
+        String input = sc.nextLine();
+
+        // Call the reverseWordOrder function
+        String reversed = reverseWordOrder(input);
+
+        // Output result
+        System.out.println("Reversed word order:");
+        System.out.println(reversed);
+
+        sc.close();
     }
 }
+
+/*
+Example Test Cases:
+
+Input: "  Java is fun  "
+Output: "fun is Java"
+
+Input: "Hello World"
+Output: "World Hello"
+
+Input: "    "
+Output: ""
+
+Input: null
+Output: ""
+
+Time Complexity (TC):
+- Splitting string: O(n) where n = length of string
+- Looping through words: O(m) where m = number of words
+=> Overall TC: O(n)
+
+Space Complexity (SC):
+- Array to store words: O(m)
+- StringBuilder for result: O(n)
+=> Overall SC: O(n)
+*/
