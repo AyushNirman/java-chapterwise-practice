@@ -1,5 +1,21 @@
-	String str="a yu s h a a a a  ";
-		
-		String result=str.replace(" ","");
-		
-		System.out.println(result);
+public class Main {
+    public static void main(String[] args) {
+        // Step 1: Input string with spaces, tabs, and newlines
+        String str = " H e l l o  World 123 \t\n";
+
+        // Step 2: Remove all whitespaces (spaces, tabs, newlines)
+        // \\s matches any whitespace character
+        // replaceAll replaces all occurrences with an empty string ""
+        String result = str.replaceAll("\\s", "");
+
+        // Step 3: Print original and result strings
+        System.out.println("Original String: '" + str + "'");
+        System.out.println("Without whitespaces: '" + result + "'");
+    }
+}
+
+
+
+Original String: ' H e l l o  World 123 	
+'
+Without whitespaces: 'HelloWorld123'
