@@ -1,0 +1,147 @@
+Perfect 👍
+Let’s do **First Non-Repeating Element** step-by-step, **human way + interview way**.
+
+---
+
+## 🔍 Problem: First Non-Repeating Element
+
+> Given an array, find the **first element that occurs exactly once**.
+
+---
+
+## ✅ Example
+
+**Input**
+
+```text
+[9, 4, 9, 6, 7, 4]
+```
+
+**Output**
+
+```text
+6
+```
+
+👉 Why?
+
+* 9 → repeats
+* 4 → repeats
+* **6 → occurs only once & appears first**
+
+---
+
+## 🧠 HUMAN LOGIC (SOCH)
+
+1. Pehle count karo → har element kitni baar aaya
+2. Fir left se check karo
+3. Jiska count **1** ho → wahi answer
+
+---
+
+## ✅ BEST INTERVIEW CODE (HashMap)
+
+```java
+import java.util.HashMap;
+
+public class Main {
+
+    public static void main(String[] args) {
+        int[] arr = {9, 4, 9, 6, 7, 4};
+        System.out.println(firstNonRepeating(arr));
+    }
+
+    public static int firstNonRepeating(int[] arr) {
+
+        HashMap<Integer, Integer> map = new HashMap<>();
+
+        // Step 1: Count frequency
+        for (int x : arr) {
+            map.put(x, map.getOrDefault(x, 0) + 1);
+        }
+
+        // Step 2: Find first non-repeating
+        for (int x : arr) {
+            if (map.get(x) == 1) {
+                return x;
+            }
+        }
+
+        return -1; // no non-repeating element
+    }
+}
+```
+
+---
+
+## 🧪 DRY RUN
+
+Array:
+
+```
+[9, 4, 9, 6, 7, 4]
+```
+
+Frequency map:
+
+```
+9 → 2
+4 → 2
+6 → 1
+7 → 1
+```
+
+Check order:
+
+```
+9 ❌
+4 ❌
+6 ✅ → ANSWER
+```
+
+---
+
+## ⏱ TIME & SPACE
+
+* **Time Complexity:** `O(n)`
+* **Space Complexity:** `O(n)`
+
+---
+
+## ❓ INTERVIEW QUESTIONS THEY ASK
+
+### Q1. Difference between **first repeating** & **first non-repeating**?
+
+* Repeating → count > 1
+* Non-repeating → count == 1
+
+---
+
+### Q2. Can we do without HashMap?
+
+👉 Yes, if range is small → frequency array
+
+---
+
+### Q3. What if no such element?
+
+👉 Return `-1` (or handle as per problem)
+
+---
+
+## 🔥 BONUS: Using HashSet (LESS CLEAR, NOT PREFERRED)
+
+HashSet alone **not recommended** because:
+
+* Order matter karta hai
+* Frequency track karna mushkil
+
+---
+
+## 🏆 FINAL VERDICT
+
+✔️ Most common interview question
+✔️ HashMap approach = BEST
+✔️ Easy to explain
+
+
