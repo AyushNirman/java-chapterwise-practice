@@ -1,0 +1,84 @@
+int[] arr = {1, 2, 3, 2, 4, 1, 5};
+Duplicates: 2 1
+
+import java.util.HashSet;
+
+class Solution {
+
+    public static void findDuplicates(int[] arr) {
+
+        HashSet<Integer> set = new HashSet<>();
+
+        for (int num : arr) {
+
+            // If element already exists in set
+            if (!set.add(num)) {
+                System.out.println(num);
+            }
+        }
+    }
+
+    public static void main(String[] args) {
+        int[] arr = {1, 2, 3, 2, 4, 1};
+        findDuplicates(arr);
+    }
+}
+
+
+
+
+
+
+---
+
+## ⏱ TIME & SPACE
+
+- **Time:** `O(n)`
+- **Space:** `O(n)` (HashSet)
+
+Fast + clean + interview safe ✅
+
+---
+
+## ❓ INTERVIEWER FOLLOW-UPS
+
+### Q1. Why HashSet?
+👉 Because it enforces uniqueness automatically
+
+---
+
+### Q2. Does this preserve order?
+👉 Output order = order of second occurrence
+
+---
+
+### Q3. Can this work for strings?
+👉 Yes, just change type:
+```java
+HashSet<String> 
+
+
+
+
+Q4. What if I need duplicates only once?
+
+👉 Use another HashSet to store printed duplicates
+
+🏆 ONE-LINE INTERVIEW ANSWER
+
+“I use HashSet because add() returns false for duplicates, allowing O(n) detection.”
+
+
+
+
+well herhe we can use 2 hashSet 
+ HashSet<Integer> seen = new HashSet<>();
+        HashSet<Integer> duplicates = new HashSet<>();
+
+        for (int num : arr) {
+
+            // If add() returns false → duplicate found
+            if (!seen.add(num)) {
+                duplicates.add(num);
+            }
+        }
