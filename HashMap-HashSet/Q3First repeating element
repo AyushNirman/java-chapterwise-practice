@@ -1,0 +1,150 @@
+
+
+# 🟢 Question: First Repeating Element (Using HashSet – Left to Right)
+
+---
+
+## 📌 Problem Statement
+
+Given an array of integers, find the **first repeating element** while traversing the array **from left to right**.
+
+> First repeating means: the **first element that appears again** while scanning the array.
+
+---
+
+## 📥 Input
+
+```text
+[10, 5, 3, 4, 3, 5, 6]
+```
+
+## 📤 Output
+
+```text
+3
+```
+
+---
+
+## 🧠 Approach Used
+
+**HashSet**
+
+---
+
+## ✅ Logic (Step-by-Step)
+
+1. Create a `HashSet` to store elements already seen
+2. Traverse the array from **left to right**
+3. For each element:
+
+   * If element is already in HashSet → **this is the first repeating element**
+   * Return it immediately
+4. If traversal ends and no repeat found → return `-1`
+
+---
+
+## 💻 Java Code (With IMPORTANT COMMENTS)
+
+```java
+import java.util.HashSet;
+
+class Solution {
+
+    public static int firstRepeatingElement(int[] arr) {
+
+        // HashSet to store elements we have seen
+        HashSet<Integer> seen = new HashSet<>();
+
+        // Traverse array from left to right
+        for (int i = 0; i < arr.length; i++) {
+
+            // IMPORTANT STEP:
+            // If element already exists in HashSet,
+            // it means this is the first repeating element
+            if (seen.contains(arr[i])) {
+                return arr[i];   // return immediately
+            }
+
+            // Mark element as seen
+            seen.add(arr[i]);
+        }
+
+        // No repeating element found
+        return -1;
+    }
+
+    public static void main(String[] args) {
+        int[] arr = {10, 5, 3, 4, 3, 5, 6};
+        System.out.println(firstRepeatingElement(arr));
+    }
+}
+```
+
+---
+
+## ⭐ IMPORTANT NOTES (COMMENT THESE IN COMPILER / INTERVIEW)
+
+```text
+- HashSet stores only unique elements
+- contains() and add() work in O(1) time
+- Returning immediately ensures first repetition
+- Order matters in this problem
+```
+
+---
+
+## ⏱ Time Complexity (TC)
+
+```text
+O(n)
+```
+
+### Why?
+
+* Single loop over array
+* HashSet operations are O(1)
+
+---
+
+## 📦 Space Complexity (SC)
+
+```text
+O(n)
+```
+
+### Why?
+
+* HashSet may store all elements in worst case
+
+---
+
+## 🚨 VERY IMPORTANT INTERVIEW POINT
+
+⚠️ This approach finds:
+
+> **First duplicate encountered**
+
+❌ It does NOT always give:
+
+> **First repeating element by earliest index**
+
+Example:
+
+```text
+[10, 5, 3, 4, 3, 5, 6]
+```
+
+* Output using this method → **3**
+* Correct first repeating element → **5**
+
+👉 To fix this, interviewer may expect **right-to-left traversal**
+
+---
+
+## 🗣 How to Explain in Interview (Short)
+
+> “I use a HashSet and traverse left to right.
+> If an element is already present, I return it as the first repeating element.
+> Time complexity is O(n) and space complexity is O(n).”
+
