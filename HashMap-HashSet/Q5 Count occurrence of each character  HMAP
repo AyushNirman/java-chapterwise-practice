@@ -1,0 +1,53 @@
+🔍 Problem
+
+Given a string, count how many times each character appears.
+
+✅ Example
+
+Input
+
+"programming"
+
+Output
+
+p → 1
+r → 2
+o → 1
+g → 2
+a → 1
+m → 2
+i → 1
+n → 1
+
+
+import java.util.HashMap;
+
+public class Main {
+
+    public static void main(String[] args) {
+
+        String str = "programming";
+        countCharacters(str);
+    }
+
+    public static void countCharacters(String str) {
+
+        HashMap<Character, Integer> map = new HashMap<>();
+
+        for (char ch : str.toCharArray()) {
+            map.put(ch, map.getOrDefault(ch, 0) + 1);
+        }
+
+        for (char ch : map.keySet()) {
+            System.out.println(ch + " -> " + map.get(ch));
+        }
+    }
+}
+
+
+
+TIME & SPACE
+
+Time Complexity: O(n)
+
+Space Complexity: O(n)
