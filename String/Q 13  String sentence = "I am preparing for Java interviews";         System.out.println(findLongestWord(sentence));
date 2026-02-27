@@ -1,0 +1,90 @@
+Input
+
+"I am learning data structures"
+
+Output
+
+"structures"
+
+
+HUMAN LOGIC (DIMAGH ME)
+
+Sentence ko words me tod do
+
+Ek variable rakho jo longest word yaad rakhe
+
+Har word ka length compare karo
+
+Jo bada ho → update
+
+
+
+
+class Solution {
+
+    public static String findLongestWord(String sentence) {
+
+        // Step 1: Split sentence into words
+        String[] words = sentence.split(" ");
+
+        // Step 2: Store longest word
+        String longestWord = "";
+
+        // Step 3: Traverse words
+        for (String word : words) {
+
+            // IMPORTANT CHECK:
+            // Compare word length
+            if (word.length() > longestWord.length()) {
+                longestWord = word;
+            }
+        }
+
+        return longestWord;
+    }
+
+    public static void main(String[] args) {
+        String sentence = "I am preparing for Java interviews";
+        System.out.println(findLongestWord(sentence));
+    }
+}
+
+
+
+
+## ⏱ TIME & SPACE
+
+- **Time Complexity:** `O(n)`  
+  (n = total characters)
+- **Space Complexity:** `O(n)`  
+  (words array)
+
+---
+
+
+🔥 BONUS (WITHOUT SPLIT – OPTIONAL)
+public static String longestWord(String s) {
+
+    String longest = "";
+    String current = "";
+
+    for (char ch : s.toCharArray()) {
+        if (ch != ' ') {
+            current += ch;
+        } else {
+            if (current.length() > longest.length()) {
+                longest = current;
+            }
+            current = "";
+        }
+    }
+
+    if (current.length() > longest.length()) {
+        longest = current;
+    }
+
+    return longest;
+}
+
+
+
