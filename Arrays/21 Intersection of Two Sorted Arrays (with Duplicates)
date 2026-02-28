@@ -7,6 +7,12 @@ Interview + revision + confidence = 💯
 
 # 📌 Intersection of Two Sorted Arrays (with Duplicates)
 
+
+Input: a[] = [1, 2, 3, 4, 5], b[] = [1, 2, 3, 6, 7]
+Output: 1 2 3
+Explanation: Distinct elements in both the arrays are: 1 2 3.
+
+
 ## 🧠 Problem Statement (Simple Words)
 
 Hume **2 sorted arrays** diye gaye hain
