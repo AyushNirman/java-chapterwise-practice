@@ -24,6 +24,9 @@ public class Main {
         // Step 1: Print purpose
         System.out.println("Armstrong number check");
 
+if (x < 0) return false;
+if (x == 0) return true;
+
         // Step 2: Take input from user
         Scanner sc = new Scanner(System.in);
         int num = sc.nextInt();
