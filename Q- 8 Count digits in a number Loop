@@ -15,5 +15,7 @@ public class Main {
 
         // Step 3: Print the result
         System.out.println("Number of digits in " + n + " is: " + count);
+
+if (num == 0) return 1;
     }
 }
